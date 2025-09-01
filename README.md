@@ -28,29 +28,74 @@
 ## 🗂 Code Structure
 
 ```
-HMS_PRJCT
-├── src
-│   └── main
-│       ├── java/com/Major/Project
-│       │   ├── Appointment       # Appointment booking and scheduling
-│       │   ├── Billing           # Billing module (invoices, payments)
-│       │   ├── Configuration     # JWT, security, and app configs
-│       │   ├── Doctor            # Doctor registration and management
-│       │   ├── Inventory         # Medical stock management
-│       │   ├── Laboratory        # Lab test ordering and results
-│       │   ├── Patient           # Patient profile and records
-│       │   ├── Pharmacy          # Medicine and pharmacy-related logic
-│       │   ├── Reporting         # Admin dashboards and report generation
-│       │   ├── Security          # Spring Security and JWT auth
-│       │   └── Staff             # Hospital staff HR module
-│       │
-│       └── resources
-│           ├── application.yml   # Configuration file
-│           ├── static            # Static resources (if any)
-│           └── templates         # Thymeleaf or other templates
-│
-├── pom.xml                       # Maven configuration
-└── README.md
+MediMate-Your-Digital-Hospital-Management-System/
+├── LICENSE
+├── Dockerfile
+├── mvnw
+├── mvnw.cmd
+├── pom.xml
+├── README.md
+├── CODE_OF_CONDUCT.md
+├── CONTRIBUTING.md
+└── src/
+    ├── main/ java/com/Major/Project/
+    │   │               ├── Configuration/
+    │   │               │   └── CustomException.java
+    │   │               ├── Controller/
+    │   │               │   ├── AppointmentController.java
+    │   │               │   ├── BillController.java
+    │   │               │   ├── DoctorController.java
+    │   │               │   ├── InventoryController.java
+    │   │               │   ├── LabController.java
+    │   │               │   ├── MedicineController.java
+    │   │               │   ├── PatientController.java
+    │   │               │   └── StaffController.java
+    │   │               ├── DTO/
+    │   │               │   ├── AppointmentDTO.java
+    │   │               │   ├── BillDTO.java
+    │   │               │   ├── DoctorDTO.java
+    │   │               │   ├── InventoryDTO.java
+    │   │               │   ├── LabTestDTO.java
+    │   │               │   ├── MedicineDTO.java
+    │   │               │   ├── PatientDTO.java
+    │   │               │   └── StaffDTO.java
+    │   │               ├── Entity/
+    │   │               │   ├── Appointment.java
+    │   │               │   ├── Bill.java
+    │   │               │   ├── Doctor.java
+    │   │               │   ├── Inventory.java
+    │   │               │   ├── LabTest.java
+    │   │               │   ├── Medicine.java
+    │   │               │   ├── Patient.java
+    │   │               │   └── Staff.java
+    │   │               ├── Repository/
+    │   │               │   ├── AppointmentRepo.java
+    │   │               │   ├── BillingRepository.java
+    │   │               │   ├── DoctorRepository.java
+    │   │               │   ├── InventoryRepository.java
+    │   │               │   ├── LabRepository.java
+    │   │               │   ├── MedicineRepository.java
+    │   │               │   ├── PatientRepository.java
+    │   │               │   └── StaffRepository.java
+    │   │               ├── Security/
+    │   │               │   └── SecurityConfig.java
+    │   │               ├── Service/
+    │   │               │   ├── AppointmentService.java
+    │   │               │   ├── BillService.java
+    │   │               │   ├── DoctorService.java
+    │   │               │   ├── InventoryService.java
+    │   │               │   ├── LabService.java
+    │   │               │   ├── MedicineService.java
+    │   │               │   ├── PatientService.java
+    │   │               │   └──  StaffService.java
+    │   │               └── MajorProjectApplication.java
+    │   └── resources/
+    │       ├── application-dev.yml
+    │       └── application.yml
+    └── test/java/com/Major/Project/
+                        ├── MajorProjectApplicationTests.java
+                        └── PatientServiceTest.java
+
 ```
 
 > Each module is decoupled for scalability and future conversion to full microservices.
@@ -106,8 +151,8 @@ mvn spring-boot:run
 4. **Access APIs:**
 
 ```
-http://localhost:8080/api/v1/patients
-http://localhost:8080/api/v1/doctors
+http://localhost:8080/HMS/patients
+http://localhost:8080/HMS/doctors
 ...
 ```
 
@@ -115,14 +160,48 @@ http://localhost:8080/api/v1/doctors
 
 ## ▶️ Usage
 
-### API Endpoints (Sample)
+
+
+
+### API Endpoints for Hospital Management System
 
 | Endpoint | Method | Description |
-|---------|--------|-------------|
-| `/api/v1/patients` | GET/POST | Register or fetch patients |
-| `/api/v1/doctors` | GET/POST | Manage doctor data |
-| `/api/v1/appointments` | POST | Book an appointment |
-| `/api/v1/bills` | GET/POST | Generate and retrieve bills |
+| :--- | :--- | :--- |
+| **Appointment Management** | | |
+| `/HMS/Appointment` | `GET` / `POST` | Get all appointments or create a new one. |
+| `/HMS/Appointment/{id}` | `GET` / `PUT` / `DELETE` | Retrieve, update, or delete an appointment by ID. |
+| `/HMS/Appointment/doctor/{doctorId}` | `GET` | Get all appointments for a specific doctor. |
+| `/HMS/Appointment/patient/{patientId}`| `GET` | Get all appointments for a specific patient. |
+| **Billing Management** | | |
+| `/HMS/Bill` | `GET` / `POST` | Get all bills or create a new one. |
+| `/HMS/Bill/{id}` | `GET` / `PUT` / `DELETE` | Retrieve, update, or delete a bill by ID. |
+| `/HMS/Bill/Patient/{patientId}` | `GET` | Get all bills for a specific patient. |
+| **Doctor Management** | | |
+| `/HMS/Doctor` | `GET` / `POST` | Get all doctors or add a new one. |
+| `/HMS/Doctor/{id}` | `GET` / `PUT` / `DELETE` | Retrieve, update, or delete a doctor by ID. |
+| **Inventory Management** | | |
+| `/HMS/Inventory` | `GET` / `POST` | Get all inventory items or create a new one. |
+| `/HMS/Inventory/{inventoryId}` | `GET` / `PUT` / `DELETE` | Retrieve, update, or delete an item by ID. |
+| `/HMS/Inventory/status/{status}` | `GET` | Get inventory items by status. |
+| `/HMS/Inventory/category/{category}` | `GET` | Get inventory items by category. |
+| **Lab Test Management** | | |
+| `/HMS/LabTest` | `GET` / `POST` | Get all lab tests or create a new one. |
+| `/HMS/LabTest/{id}` | `GET` / `PUT` / `DELETE` | Retrieve, update, or delete a lab test by ID. |
+| `/HMS/LabTest/patient/{patientId}` | `GET` | Get all lab tests for a specific patient. |
+| `/HMS/LabTest/status/{status}` | `GET` | Get lab tests by status. |
+| **Medicine & Pharmacy Management** | | |
+| `/HMS/Medicine` | `GET` / `POST` | Get all medicines or add a new one. |
+| `/HMS/Medicine/{id}` | `GET` / `PUT` / `DELETE` | Retrieve, update, or delete a medicine by ID. |
+| `/HMS/Medicine/status/{status}` | `GET` | Get medicines by status. |
+| `/HMS/Medicine/search/{name}` | `GET` | Search for medicines by name. |
+| **Patient Management** | | |
+| `/HMS/Patient` | `GET` / `POST` | Get all patients or register a new one. |
+| `/HMS/Patient/{id}` | `GET` / `PUT` / `DELETE` | Retrieve, update, or delete a patient by ID. |
+| **Staff Management** | | |
+| `/HMS/Staff` | `GET` / `POST` | Get all staff members or add a new one. |
+| `/HMS/Staff/{id}` | `GET` / `PUT` / `DELETE` | Retrieve, update, or delete a staff member by ID. |
+| `/HMS/Staff/department/{department}` | `GET` | Get staff by department. |
+| `/HMS/Staff/role/{role}` | `GET` | Get staff by role. |
 
 > Postman collection coming soon!
 
