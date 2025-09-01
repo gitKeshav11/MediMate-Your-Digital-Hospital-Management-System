@@ -28,29 +28,74 @@
 ## 🗂 Code Structure
 
 ```
-HMS_PRJCT
-├── src
-│   └── main
-│       ├── java/com/Major/Project
-│       │   ├── Appointment       # Appointment booking and scheduling
-│       │   ├── Billing           # Billing module (invoices, payments)
-│       │   ├── Configuration     # JWT, security, and app configs
-│       │   ├── Doctor            # Doctor registration and management
-│       │   ├── Inventory         # Medical stock management
-│       │   ├── Laboratory        # Lab test ordering and results
-│       │   ├── Patient           # Patient profile and records
-│       │   ├── Pharmacy          # Medicine and pharmacy-related logic
-│       │   ├── Reporting         # Admin dashboards and report generation
-│       │   ├── Security          # Spring Security and JWT auth
-│       │   └── Staff             # Hospital staff HR module
-│       │
-│       └── resources
-│           ├── application.yml   # Configuration file
-│           ├── static            # Static resources (if any)
-│           └── templates         # Thymeleaf or other templates
-│
-├── pom.xml                       # Maven configuration
-└── README.md
+MediMate-Your-Digital-Hospital-Management-System/
+├── LICENSE
+├── Dockerfile
+├── mvnw
+├── mvnw.cmd
+├── pom.xml
+├── README.md
+├── CODE_OF_CONDUCT.md
+├── CONTRIBUTING.md
+└── src/
+    ├── main/ java/com/Major/Project/
+    │   │               ├── Configuration/
+    │   │               │   └── CustomException.java
+    │   │               ├── Controller/
+    │   │               │   ├── AppointmentController.java
+    │   │               │   ├── BillController.java
+    │   │               │   ├── DoctorController.java
+    │   │               │   ├── InventoryController.java
+    │   │               │   ├── LabController.java
+    │   │               │   ├── MedicineController.java
+    │   │               │   ├── PatientController.java
+    │   │               │   └── StaffController.java
+    │   │               ├── DTO/
+    │   │               │   ├── AppointmentDTO.java
+    │   │               │   ├── BillDTO.java
+    │   │               │   ├── DoctorDTO.java
+    │   │               │   ├── InventoryDTO.java
+    │   │               │   ├── LabTestDTO.java
+    │   │               │   ├── MedicineDTO.java
+    │   │               │   ├── PatientDTO.java
+    │   │               │   └── StaffDTO.java
+    │   │               ├── Entity/
+    │   │               │   ├── Appointment.java
+    │   │               │   ├── Bill.java
+    │   │               │   ├── Doctor.java
+    │   │               │   ├── Inventory.java
+    │   │               │   ├── LabTest.java
+    │   │               │   ├── Medicine.java
+    │   │               │   ├── Patient.java
+    │   │               │   └── Staff.java
+    │   │               ├── Repository/
+    │   │               │   ├── AppointmentRepo.java
+    │   │               │   ├── BillingRepository.java
+    │   │               │   ├── DoctorRepository.java
+    │   │               │   ├── InventoryRepository.java
+    │   │               │   ├── LabRepository.java
+    │   │               │   ├── MedicineRepository.java
+    │   │               │   ├── PatientRepository.java
+    │   │               │   └── StaffRepository.java
+    │   │               ├── Security/
+    │   │               │   └── SecurityConfig.java
+    │   │               ├── Service/
+    │   │               │   ├── AppointmentService.java
+    │   │               │   ├── BillService.java
+    │   │               │   ├── DoctorService.java
+    │   │               │   ├── InventoryService.java
+    │   │               │   ├── LabService.java
+    │   │               │   ├── MedicineService.java
+    │   │               │   ├── PatientService.java
+    │   │               │   └──  StaffService.java
+    │   │               └── MajorProjectApplication.java
+    │   └── resources/
+    │       ├── application-dev.yml
+    │       └── application.yml
+    └── test/java/com/Major/Project/
+                        ├── MajorProjectApplicationTests.java
+                        └── PatientServiceTest.java
+
 ```
 
 > Each module is decoupled for scalability and future conversion to full microservices.
