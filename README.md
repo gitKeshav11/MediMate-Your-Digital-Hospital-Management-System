@@ -98,7 +98,6 @@ MediMate-Your-Digital-Hospital-Management-System/
 
 ---
 ## ⛏ Installation
-
 ### Prerequisites
 
 - Java 8+
