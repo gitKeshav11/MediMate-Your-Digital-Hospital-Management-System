@@ -20,7 +20,6 @@
 - 🧰 **Microservices Ready**: Modular structure with Eureka Service Discovery and API Gateway.
 - 📑 **PDF Generation**: Patient reports, bills, and appointment summaries.
 - 📬 **Email & SMS Notifications**: Alerts for appointments, prescriptions, and bills.
-
 ---
 ## 🗂 Code Structure
 
