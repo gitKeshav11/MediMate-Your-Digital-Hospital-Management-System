@@ -142,7 +142,6 @@ mvn spring-boot:run
 ```
 
 4. **Access APIs:**
-
 ```
 http://localhost:8080/HMS/patients
 http://localhost:8080/HMS/doctors
