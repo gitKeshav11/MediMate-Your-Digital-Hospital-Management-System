@@ -137,7 +137,6 @@ spring:
 ```
 
 3. **Run the application:**
-
 ```bash
 mvn spring-boot:run
 ```
