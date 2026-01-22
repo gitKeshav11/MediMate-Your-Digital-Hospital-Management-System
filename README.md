@@ -22,7 +22,6 @@
 - 📬 **Email & SMS Notifications**: Alerts for appointments, prescriptions, and bills.
 
 ---
-
 ## 🗂 Code Structure
 
 ```
