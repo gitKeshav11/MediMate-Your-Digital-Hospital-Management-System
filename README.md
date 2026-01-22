@@ -1,4 +1,3 @@
-
 # 🏥 MediMate - Your Digital Hospital Management System
 
 ## 📈 Project Overview
