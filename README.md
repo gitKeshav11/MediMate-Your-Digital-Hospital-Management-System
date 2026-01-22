@@ -97,7 +97,6 @@ MediMate-Your-Digital-Hospital-Management-System/
 > Each module is decoupled for scalability and future conversion to full microservices.
 
 ---
-
 ## ⛏ Installation
 
 ### Prerequisites
