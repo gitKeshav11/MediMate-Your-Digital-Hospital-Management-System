@@ -94,7 +94,6 @@ MediMate-Your-Digital-Hospital-Management-System/
                         └── PatientServiceTest.java
 
 ```
-
 > Each module is decoupled for scalability and future conversion to full microservices.
 
 ---
