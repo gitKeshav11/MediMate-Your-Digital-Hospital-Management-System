@@ -7,7 +7,6 @@
 ⚙️ Built for educational, clinical, and administrative use, MediMate supports role-based access and RESTful APIs to power modern healthcare platforms.
 
 ---
-
 ## 🔧 Features
 
 - 🧑‍⚕️ **Patient & Doctor Management**: Registration, profiles, and assignment handling.
